@@ -14,7 +14,6 @@ body {
 }*/                                     /* informacion para mi*/
 
 
-
 /*fin del encabezado*/
 header{
     position: absolute;
@@ -71,6 +70,39 @@ h1.display-5 {
     margin-top: 20%;
     font-size: 2.025rem;
     font-weight: bolder;
+}
+
+@media only screen and (max-width: 818px) {
+    h1.display-5 {
+        margin-top: 0%;
+    }
+    .container1a {     
+        margin-top: -70%;
+    }    
+}
+
+@media only screen and (max-width: 500px) {
+    .container1a {     
+        margin-top: -100%;
+    }    
+}
+
+@media only screen and (max-width: 380px) {
+    .container1a {     
+        margin-top: -133%;
+    }    
+}
+
+@media only screen and (max-width: 320px) {
+    .container1a {     
+        margin-top: -155%;
+    }    
+}
+
+@media only screen and (max-width: 300px) {
+    .container1a {     
+        margin-top: -165%;
+    }    
 }
 
 .justify-content-sm-center {            /* contenedor de los botones eliminar la predeterminación */
