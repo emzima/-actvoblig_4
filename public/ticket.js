@@ -144,7 +144,7 @@ function muestreErrorCorreo() {
         correoError.textContent = 'Falta la dirección de Correo Electrónico.';
         color('correo','pink')
     } else if(correo.validity.typeMismatch) {
-        correoError.textContent = 'El valor introducido debe ser una dirección de Correo Electrónico (falta el @).';
+        correoError.textContent = 'El valor introducido debe ser una dirección de Correo Electrónico (puede faltar el @ y la longitud miníma de 8 carácteres).';
         color('correo','pink')
     } else if(correo.validity.tooShort) {
         correoError.textContent = `El correo electrónico debe tener al menos ${correo.minLength} carácteres; ha introducido ${ correo.value.length }.`;
