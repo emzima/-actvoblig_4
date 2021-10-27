@@ -150,6 +150,6 @@ function muestreErrorCorreo() {
         correoError.textContent = `El correo electrónico debe tener al menos ${correo.minLength} carácteres; ha introducido ${ correo.value.length }.`;
         color('correo','pink')
     }
-    correoError.className = 'Error activo';
+    correoError.className = 'error activo';
 };
 
