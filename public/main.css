@@ -48,7 +48,7 @@ span.fs-4 {
 
 .container1 {                           /* contenedor de la imagen oscurecida */
     display: relative;
-    background-image: url(ba1.jpg);
+    background-image: url(imagenes/ba1.jpg);
     width:100%;
     height: 650px;
     filter: brightness(50%);

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/ticket.css">
+    <title>Comprar tickets</title>
+</head>
+<body>
+    <!-- inicio del encabezado 2-->
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <span class="fs-4">Conf Bs As</span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="../index.html" class="nav-link">La conferencia</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link disabled">Los oradores</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link disabled">El lugar y la fecha</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Conviértete en orador</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="especial">Comprar tickets</a>
+            </li>
+        </ul>
+    </header>
+    <!-- fin del encabezado 2 -->
+
+    <main>
+        <!-- inicio de contedor 1 tarjetas -->
+        <div class="container"  id="cards">
+            <section class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="container1a">       <!-- inicio de tarjeta 1 -->
+                    <div class="card border-info" style="border: 2px solid">
+                        <div class="card-body">
+                            <h5 class="card-title">Estudiante</h5>                        
+                            <p class="card-text">Tienen un descuento</p><br/>
+                            <article class="card-text"><span>80</span> %</article><br/>
+                            <h6 class="card-subtitle text-muted">* presentar documentación</h6>
+                        </div>
+                    </div>
+                </div>                          <!-- inicio de tarjeta 2 -->
+                <div class="container1a">
+                    <div class="card border-info" style="border: 2px solid">
+                        <div class="card-body">
+                            <h5 class="card-title">Trainee</h5>                        
+                            <p class="card-text">Tienen un descuento</p><br/>
+                            <article class="card-text"><span>50</span> %</article><br/>
+                            <h6 class="card-subtitle text-muted">* presentar documentación</h6>
+                        </div>
+                    </div>
+                </div>                          <!-- inicio de tarjeta 3 -->
+                <div class="container1a">
+                    <div class="card border-warning" style="border: 2px solid">
+                        <div class="card-body">
+                            <h5 class="card-title">Junior</h5>
+                            <p class="card-text">Tienen un descuento</p><br/>
+                            <article class="card-text"><span>15</span> %</article><br/>
+                            <h6 class="card-subtitle text-muted">* presentar documentación</h6>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>    
+        <!-- fin de contedor 1 tarjetas -->
+
+        <!-- inicio de contenedor 2 formulario -->
+        <div class="container" id="form" name="form">
+            <article class="tituloform">
+                <p>VENTA</p>
+                <h3>VALOR DE TICKET $200</h3>
+            </article>
+            <section class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre" required>
+                    <span class="error" aria-live="polite" style="color: red"></span>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" id="apellido" required>
+                    <span class="error" aria-live="polite" style= "color: red"></span>
+                </div>
+            </section>
+            <div class="col" id="container2a">
+                <input type="email" name='correo' class="form-control" placeholder="Correo" aria-label="Correo" id="correo" required minlength="8">
+                <span class="error" aria-live="polite" style= "color: red"></span>
+            </div>
+            <section class="row">
+                <div class="col">
+                    <p>Cantidad</p>
+                    <input type="number" name="cantidad" class="form-control" id="cantidad" placeholder="cantidad" aria-label="cantidad" required>
+                    <span class="error" aria-live="polite" style="color: red"></span>
+                </div>
+                <div class="col">
+                    <p>Categoría</p>
+                    <select name="categoria" id="categoria" class="btn btn-outline-secondary" required>
+                        <option value= "estudiante" name= "estudiante">Estudiante</option>
+                        <option value= "trainee" name= "trainee">Trainee</option>
+                        <option value= "junior" name= "junior">Junior</option>
+                        <option value= "general" name= "general">Público General</option>
+                    </select>
+                </div>
+            </section>
+            <div class="col" id="container2b">
+                <input type="text" class="form-control" placeholder="    Total a Pagar: $" aria-label="Pago" style="height: 60px" id="total" required>
+                <span class="error" aria-live="polite" style= "color: red"></span>
+            </div>
+            <section class="row">
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="reset" id="borrado">Borrar</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button" id="resumen">Resumen</button>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        <!-- fin de contenedor 4 formulario -->
+    </main>
+    
+
+    <!-- inicio de contenedor 5 pie de pagina -->  
+    <footer class="py-3 my-3">
+        <ul class="nav justify-content-around border-bottom" id="piepagina">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Preguntas <br/>frecuentes</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Contaćtenos</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Prensa</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Conferencias</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Términnos y <br/>condiciones</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Privacidad</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-start">Estudiantes</a>
+            </li>
+        </ul>
+    </footer>
+    <hr>     
+    <p class="text-center text-muted">Todos los derechos reservados &copy; by Emiliano Zapata</p>
+    <hr>  
+    <!-- fin de contenedor 5 pie de pagina -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="../public/ticket.js"></script>
+</body>
+</html>
