@@ -1,22 +1,22 @@
 // ESTABLECIENDO LAS CONSTANTES Y VARIABLES GLOBALES
-const botonBorrar= document.getElementById('borrado');
-const botonResumen= document.getElementById('resumen');
-const comprar  = document.getElementById('especial');
-const nombre  = document.getElementById('nombre');
-const apellido  = document.getElementById('apellido');
-const categoria = document.getElementsByName('categoria')[0];
-const cantidad = document.getElementsByName('cantidad')[0];
-const correo = document.getElementsByName('correo')[0];
-const total  = document.getElementById('total');
-const nombreError = document.querySelector('#nombre + span.error');
-const apellidoError = document.querySelector('#apellido + span.error');
-const correoError = document.querySelector('#correo + span.error');
-const cantidadError = document.querySelector('#cantidad + span.error');
-const btn= document.createElement('BUTTON');
-const texto= document.createTextNode('PAGAR');
-const mnsgError= 'Pequeño error que da si no hay boton creado. Ha sido capturado. Este console.log es innecesario sólo es pedagógico';
-const mnsgFinal= 'Sus datos serán enviadoas a una pasarela de pago para su mayor seguridad... Muchas gracias por su selección, confianza y ojalá su participación sea fructifera...'
-const arrayDescuento=[.2,.5,.85,1];
+const BOTONBORRAR= document.getElementById('borrado');
+const BOTONRESUMEN= document.getElementById('resumen');
+const COMPRAR  = document.getElementById('especial');
+const NOMBRE  = document.getElementById('nombre');
+const APELLIDO  = document.getElementById('apellido');
+const CATEGORIA = document.getElementsByName('categoria')[0];
+const CANTIDAD = document.getElementsByName('cantidad')[0];
+const CORREO = document.getElementsByName('correo')[0];
+const TOTAL  = document.getElementById('total');
+const NOMBREERROR = document.querySelector('#nombre + span.error');
+const APELLIDOERROR = document.querySelector('#apellido + span.error');
+const CORREOERROR = document.querySelector('#correo + span.error');
+const CANTIDADERROR = document.querySelector('#cantidad + span.error');
+const BTN= document.createElement('BUTTON');
+const TEXTO= document.createTextNode('PAGAR');
+const MNSGERROR= 'Pequeño error que da si no hay boton creado. Ha sido capturado. Este console.log es innecesario sólo es pedagógico';
+const MNSGFINAL= 'Sus datos serán enviadoas a una pasarela de pago para su mayor seguridad... Muchas gracias por su selección, confianza y ojalá su participación sea fructifera...'
+const ARRAYDESCUENTO=[.2,.5,.85,1];
 let isValor= false;
 
 //FUNCION LLAMADA CAMBIO DE COLOR DE LOS INPUTS MENOS NOMBRE Y APELLIDO
@@ -25,40 +25,41 @@ function color(valor,tono){
 };
 
 //FUNCION LLAMADA CONTROL DEL VALOR DE LA CANTIDAD ENTERO MAYOR QUE 0
-const controlCantidad = (cantidad) => {
-        if ((parseInt(cantidad)> 0) && ((parseFloat(cantidad)-parseInt(cantidad))==0)) {
+let controlCantidad = (valor) => {
+        if ((parseInt(valor)> 0) && ((parseFloat(valor)-parseInt(valor))==0)) {
             return true;
         } else {
             return false;
         }
 };
 //FUNCION LLAMADA BORRADO CON FUNCIONES DE LLAMADA Y CON CAPTURA DE UN ERROR
-const borrado= ()=>{
+const BORRADO= ()=>{
     document.getElementById('categoria').value= 'estudiante';
     color('categoria','#FFF');
     document.getElementById('cantidad').value= '';
     color('cantidad','#FFF');
-    cantidadError.innerHTML = ''
+    CANTIDADERROR.innerHTML = ''
     document.getElementById('nombre').value= '';
     color('nombre','#FFF');
-    nombreError.innerHTML = ''
+    NOMBREERROR.innerHTML = ''
     document.getElementById('apellido').value= '';
     color('apellido','#FFF');
-    apellidoError.innerHTML = ''
+    APELLIDOERROR.innerHTML = ''
     document.getElementById('correo').value= '';
     color('correo','#FFF');
-    correoError.innerHTML = ''
+    CORREOERROR.innerHTML = ''
+    document.getElementById('total').value= '';
     try{
-        document.getElementById('piepagina').removeChild(btn);
+        document.getElementById('piepagina').removeChild(BTN);
     } catch (DOMException){
-        console.log(mnsgError)
+        console.log(MNSGERROR)
     }
 }
 
 //EVENTO AL HACER CLICK EN RESUMEN CON FUNCION EJECUTABLE Y LLAMADA PARA VALIDAR EL ENVIO DEL FORM
-botonResumen.addEventListener('click', function (event) {
+BOTONRESUMEN.addEventListener('click', function (event) {
     let cantidadTickets = (document.getElementById('cantidad').value);
-    if((!nombre.validity.valid) || (!apellido.validity.valid) || (!cantidad.validity.valid) || (!correo.validity.valid)){
+    if((!NOMBRE.validity.valid) || (!APELLIDO.validity.valid) || (!CANTIDAD.validity.valid) || (!CORREO.validity.valid)){
         muestreError();
         event.preventDefault();
         alert('Se deben rellenar algunos campos antes de calcular el resumen del presupuesto ');
@@ -68,50 +69,50 @@ botonResumen.addEventListener('click', function (event) {
             document.getElementById('cantidad').value= '';
         }
     } else {
-        nombreError.innerHTML = '';
-        apellidoError.textContent = '';
-        correoError.textContent = '';
-        cantidadError.textContent = '';
-        let indice= categoria.selectedIndex; 
-        totalApagar= arrayDescuento[indice]*200*cantidadTickets;
+        NOMBREERROR.innerHTML = '';
+        APELLIDOERROR.textContent = '';
+        CORREOERROR.textContent = '';
+        CANTIDADERROR.textContent = '';
+        let indice= CATEGORIA.selectedIndex; 
+        let totalApagar= ARRAYDESCUENTO[indice]*200*cantidadTickets;
         document.getElementById('total').value= ("    Total a Pagar: $   "+totalApagar); //+
         document.getElementById('total').style.color = 'blue';
-        btn.setAttribute('style','color: red; font-size:10px');
-        btn.appendChild(texto);
-        document.getElementById('piepagina').appendChild(btn);
-        btn.onclick= ()=>{
-            borrado();
+        BTN.setAttribute('style','color: red; font-size:10px');
+        BTN.appendChild(TEXTO);
+        document.getElementById('piepagina').appendChild(BTN);
+        BTN.onclick= ()=>{
+            BORRADO();
             document.getElementById('total').value= '';
-            alert(mnsgFinal);
+            alert(MNSGFINAL);
         };
     };
 });
 
 //EVENTO AL HACER CLICK EN BORRAR CON FUNCION EJECUTABLE Y LLAMADAS   
-botonBorrar.addEventListener('click', borrado);
+BOTONBORRAR.addEventListener('click', BORRADO);
 
 //EVENTO AL CAMBIAR LA CATEGORIA CON FUNCION EJECUTABLE Y LLAMADA, CON CAPTURA DE UN ERROR
-categoria.addEventListener('change',()=>{
+CATEGORIA.addEventListener('change',()=>{
     document.getElementById('total').value= '';
     try{
-        document.getElementById('piepagina').removeChild(btn);
+        document.getElementById('piepagina').removeChild(BTN);
     } catch (DOMException){
-        console.log(mnsgError)
+        console.log(MNSGERROR)
     }
     color('categoria','#E8F0FE')
 });
 
 //EVENTO AL CAMBIAR LA CANTIDAD CON FUNCION EJECUTABLE Y LLAMADA
-cantidad.addEventListener('change',()=>{
+CANTIDAD.addEventListener('change',()=>{
     color('cantidad','#E8F0FE')
 });
 
 //EVENTO CON FUNCION EJECUTABLE AL CAMBIAR EL CORREO
-correo.addEventListener('change', function (event) {
+CORREO.addEventListener('change', function (event) {
     color('correo','#E8F0FE')
-    if (correo.validity.valid) {
-        correoError.innerHTML = '';
-        correoError.className = 'error';
+    if (CORREO.validity.valid) {
+        CORREOERROR.innerHTML = '';
+        CORREOERROR.className = 'error';
     } else {
         muestreErrorCorreo();
     }
@@ -119,37 +120,37 @@ correo.addEventListener('change', function (event) {
 
 //FUNCION LLAMADA PARA VALIDAR EL ENVIO DEL FORM
 function muestreError() {
-    if(nombre.validity.valueMissing) {
+    if(NOMBRE.validity.valueMissing) {
         color('nombre','pink');
-        nombreError.textContent = 'Falta el Nombre.';
+        NOMBREERROR.textContent = 'Falta el Nombre.';
     } else {
-        nombreError.innerHTML = ''}
-    if(apellido.validity.valueMissing) {
+        NOMBREERROR.innerHTML = ''}
+    if(APELLIDO.validity.valueMissing) {
         color('apellido','pink');
-        apellidoError.textContent = 'Falta el Apellido.';
+        APELLIDOERROR.textContent = 'Falta el Apellido.';
     } else {
-        apellidoError.innerHTML = ''
+        APELLIDOERROR.innerHTML = ''
     }
-    if(cantidad.validity.valueMissing) {
+    if(CANTIDAD.validity.valueMissing) {
         color('cantidad','pink');
-        cantidadError.textContent = 'Falta la Cantidad.';
+        CANTIDADERROR.textContent = 'Falta la Cantidad.';
     } else {
-        cantidadError.innerHTML = ''
+        CANTIDADERROR.innerHTML = ''
     }
     muestreErrorCorreo();
 }
 //FUNCION LLAMADA PARA VALIDAR EL FORMATO DEL CORREO
 function muestreErrorCorreo() {
-    if(correo.validity.valueMissing) {
-        correoError.textContent = 'Falta la dirección de Correo Electrónico.';
+    if(CORREO.validity.valueMissing) {
+        CORREOERROR.textContent = 'Falta la dirección de Correo Electrónico.';
         color('correo','pink')
-    } else if(correo.validity.typeMismatch) {
-        correoError.textContent = 'El valor introducido debe ser una dirección de Correo Electrónico (puede faltar el @ y la longitud miníma de 8 carácteres).';
+    } else if(CORREO.validity.typeMismatch) {
+        CORREOERROR.textContent = 'El valor introducido debe ser una dirección de Correo Electrónico (puede faltar el @ y la longitud miníma de 8 carácteres).';
         color('correo','pink')
-    } else if(correo.validity.tooShort) {
-        correoError.textContent = `El correo electrónico debe tener al menos ${correo.minLength} carácteres; ha introducido ${ correo.value.length }.`;
+    } else if(CORREO.validity.tooShort) {
+        CORREOERROR.textContent = `El correo electrónico debe tener al menos ${CORREO.minLength} carácteres; ha introducido ${ CORREO.value.length }.`;
         color('correo','pink')
     }
-    correoError.className = 'error activo';
+    CORREOERROR.className = 'error activo';
 };
 
